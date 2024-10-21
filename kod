@@ -1,0 +1,57 @@
+/*
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main()
+{
+    long long children;
+    long long eat;
+    long long vrem;
+    cin >> children;
+    if (children % 3 == 1)
+    {
+        eat = (((children - 1) * 2) / 3) + 1;
+    }
+    if (children % 3 == 2)
+    {
+        eat = (((children - 2) * 2) / 3) + 1;
+    }
+    if (children % 3 == 0)
+    {
+        eat = (children * 2) / 3;
+    }
+        
+    cout << eat;
+    
+}
+*/
+
+/*
+
+#include <iostream>
+#include <cmath>
+
+using namespace std;
+
+int main()
+{
+    long long n, k, fin, dop, dopzn;
+
+    cin >> n;
+    cin >> k;
+
+    dop = n % k;
+    if (dop == 0)
+    {
+        dopzn = 0;
+    }
+    if (dop != 0)
+    {
+        dopzn = 1;
+    }
+    fin = ((floor(n / k))  + k - 1 + dopzn);
+    cout << fin;
+}
+*/
