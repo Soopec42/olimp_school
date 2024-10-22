@@ -55,3 +55,42 @@ int main()
     cout << fin;
 }
 */
+/*
+#include <iostream>
+#include <cmath>
+#include <vector>
+#include <ctime>
+
+using namespace std;
+
+int main()
+{
+    
+    long long n, m, k, c, fin = 0;
+    cin >> n;
+    cin >> m;
+    cin >> k;
+    cin >> c;
+    unsigned int start_time = clock();
+
+    
+    for (long long i = 0; i < n; i++)
+    {
+        for (long long j = 0; j < m; j++)
+        {
+            long long color = (j - i) % k + 1;
+            if (color == c)
+                fin++;
+        }
+        
+    }
+
+    
+
+
+    cout << fin << endl;
+    unsigned int end_time = clock();
+    unsigned int search_time = end_time - start_time;  
+    cout << search_time;
+}
+*/
