@@ -94,3 +94,54 @@ int main()
     cout << search_time;
 }
 */
+/*
+#include <iostream>
+#include <cmath>
+#include <vector>
+#include <ctime>
+#include <string>
+
+using namespace std;
+
+long long fact(long long i)
+{
+    if (i != 0)
+        return i + fact(i - 1);
+    else
+        return 1;
+
+}
+
+
+int main()
+{
+    long long n, i = 1, last;
+    string fin;
+    cin >> n;
+
+
+    unsigned int start_time = clock();
+
+    
+    while (fact(i) < n)
+    {
+
+        i += 1;
+    }
+    i -= 1;
+    last = n - fact(i) + 1;
+
+    for (int j = 1; j <= i; j++)
+    {
+        fin += to_string(j);
+        fin += " ";
+    }
+    fin += to_string(last);
+
+    cout << fin << endl;
+    unsigned int end_time = clock();
+    unsigned int search_time = end_time - start_time;
+    cout << search_time;
+
+}
+*/
