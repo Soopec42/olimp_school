@@ -1,3 +1,316 @@
+#include <iostream>
+#include <cmath>
+#include <vector>
+#include <ctime>
+#include <string>
+
+using namespace std;
+
+
+long sumgr(long n, long m)
+{
+    int i = 0;
+    
+        if (m == 0 || n == 0)
+            if (m + 2 > 3 || n + 3 > 3) 
+            {
+                return 1;
+            }
+            else
+                return 0;
+
+        if (n == 1) return m;
+        if (m == 1) return n;
+
+        if (n == 3)
+            i = 1;
+        else 
+            i = 0;
+        return m + (n - 2) * 2 + sumgr(n - 2, m - 2) + i;
+    
+    
+        
+    
+}
+
+int main()
+{
+    
+    long n, m, fin;
+    cin >> n >> m;
+
+    unsigned int start_time = clock();
+    
+    fin = sumgr(n, m);
+    cout << fin;
+
+
+    unsigned int end_time = clock();
+    unsigned int search_time = end_time - start_time;
+    cout << endl << search_time;
+
+}
+
+
+
+
+
+/*
+
+#include <iostream>
+#include <cmath>
+#include <vector>
+#include <ctime>
+#include <string>
+
+using namespace std;
+
+
+
+
+int main()
+{
+    long m, n, fin;
+    cin >> m >> n;
+    unsigned int start_time = clock();
+    if (m > n)
+    {
+        if (n % 2 == 1)
+            fin = (m - (n - 1));
+        else
+            fin = 2 * (m - (n - 2));
+
+    }
+    if (m < n)
+    {
+        if (m % 2 == 1)
+            fin = (n - (m - 1));
+        else
+            fin = 2 * (n - (m - 2));
+    }
+    if (m == n)
+    {
+        if (m % 2 == 1)
+            fin = 1;
+        else
+            fin = 4;
+    }
+    cout << fin;
+    unsigned int end_time = clock();
+    unsigned int search_time = end_time - start_time;
+    cout << endl << search_time;
+
+}
+*/
+
+
+/*
+#include <iostream>
+#include <cmath>
+#include <vector>
+#include <ctime>
+#include <string>
+
+using namespace std;
+
+
+
+
+int main()
+{
+    long n, mej, fif = 0, fin;
+    cin >> n;
+    unsigned int start_time = clock();
+    if (n < 4) {
+        cout << -1;
+    }
+    else
+    {
+        mej = n % 5;
+        if (mej != 0)
+            fif = 1;
+        fin = (n / 5) + fif;
+
+        cout << fin;
+    }
+    unsigned int end_time = clock();
+    unsigned int search_time = end_time - start_time;
+    cout << endl << search_time;
+
+}
+
+*/
+/*
+#include <iostream>
+#include <cmath>
+#include <vector>
+#include <ctime>
+#include <string>
+
+using namespace std;
+
+
+
+
+int main()
+{
+    int kol;
+    cin >> kol;
+    vector<int> block = {0, 0, 0, 0, 0, 0, 0, 0, 0};
+    vector<int> numbers(kol);
+    for (int i = 0; i < kol; i++)
+    {
+        cin >> numbers[i];
+    }
+
+    unsigned int start_time = clock();
+
+    for (int j = 0; j < numbers.size(); j++)
+    {
+        if (numbers[j] == 0)
+        {
+            block[0] = 1;
+            block[1] = 1;
+            block[3] = 1;
+            block[5] = 1;
+            block[7] = 1;
+            block[8] = 1;
+        }
+        if (numbers[j] == 1)
+        {
+            block[2] = 1;
+            block[3] = 1;
+            block[7] = 1;
+        }
+        if (numbers[j] == 2)
+        {
+            block[0] = 1;
+            block[3] = 1;
+            block[6] = 1;
+            block[8] = 1;
+        }
+        if (numbers[j] == 3)
+        {
+            block[0] = 1;
+            block[2] = 1;
+            block[4] = 1;
+            block[6] = 1;
+        }
+        if (numbers[j] == 4)
+        {
+            block[1] = 1;
+            block[3] = 1;
+            block[4] = 1;
+            block[7] = 1;
+        }
+        if (numbers[j] == 5)
+        {
+            block[0] = 1;
+            block[1] = 1;
+            block[4] = 1;
+            block[7] = 1;
+            block[8] = 1;
+        }
+        if (numbers[j] == 6)
+        {
+            block[2] = 1;
+            block[4] = 1;
+            block[5] = 1;
+            block[7] = 1;
+            block[8] = 1;
+        }
+        if (numbers[j] == 7)
+        {
+            block[0] = 1;
+            block[2] = 1;
+            block[5] = 1;
+        }
+        if (numbers[j] == 8)
+        {
+            block[0] = 1;
+            block[1] = 1;
+            block[3] = 1;
+            block[4] = 1;
+            block[5] = 1;
+            block[7] = 1;
+            block[8] = 1;
+        }
+        if (numbers[j] == 9)
+        {
+            block[0] = 1;
+            block[1] = 1;
+            block[3] = 1;
+            block[4] = 1;
+            block[6] = 1;
+        }
+    }
+
+    if (block[0] == 1 &&
+        block[1] == 1 &&
+        block[3] == 1 &&
+        block[5] == 1 &&
+        block[7] == 1 &&
+        block[8] == 1)
+        cout << 0 << endl;
+    if (block[2] == 1 &&
+        block[3] == 1 &&
+        block[7] == 1)
+        cout << 1 << endl;
+    if (block[0] == 1 &&
+        block[3] == 1 &&
+        block[6] == 1 &&
+        block[8] == 1)
+        cout << 2 << endl;
+    if (block[0] == 1 &&
+        block[2] == 1 &&
+        block[4] == 1 &&
+        block[6] == 1)
+        cout << 3 << endl;
+    if (block[1] == 1 &&
+        block[3] == 1 &&
+        block[4] == 1 &&
+        block[7] == 1)
+        cout << 4 << endl;
+    if (block[0] == 1 &&
+        block[1] == 1 &&
+        block[4] == 1 &&
+        block[7] == 1 &&
+        block[8] == 1)
+        cout << 5 << endl;
+    if (block[2] == 1 &&
+        block[4] == 1 &&
+        block[5] == 1 &&
+        block[7] == 1 &&
+        block[8] == 1)
+        cout << 6 << endl;
+    if (block[0] == 1 &&
+        block[2] == 1 &&
+        block[5] == 1)
+        cout << 7 << endl;
+    if (block[0] == 1 &&
+        block[1] == 1 &&
+        block[3] == 1 &&
+        block[4] == 1 &&
+        block[5] == 1 &&
+        block[7] == 1 &&
+        block[8] == 1)
+        cout << 8 << endl;
+    if (block[0] == 1 &&
+        block[1] == 1 &&
+        block[3] == 1 &&
+        block[4] == 1 &&
+        block[6] == 1)
+        cout << 9 << endl;
+
+
+
+
+    unsigned int end_time = clock();
+    unsigned int search_time = end_time - start_time;
+    cout << endl << search_time;
+
+}
+*/
 /*
 #include <iostream>
 #include <cmath>
